@@ -8,3 +8,5 @@ Hello! I am currently writing an Electron application to control Genesis vehicle
 Created using Electron Forge, Webpack, and React.
 
 **More to come!**
+
+<img src="screenshot.png">
