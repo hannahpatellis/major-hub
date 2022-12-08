@@ -2,6 +2,8 @@ const { app, Menu, ipcMain, BrowserWindow } = require('electron');
 const path = require('path');
 import BlueLinky from 'bluelinky';
 
+import Config from './config.json';
+
 const isDev = true;
 const isMac = process.platform === 'darwin' ? true : false;
 
@@ -10,27 +12,21 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-const client = new BlueLinky({
-  username: 'hpatellis@icloud.com',
-  password: 'm00cow123',
-  brand: 'hyundai',
-  region: 'US',
-  pin: '1480'
+const client = new BlueLinky(Config.bluelink_config);
+
+client.on('ready', async () => {
+  const vehicle = client.getVehicle(Config.car_vin);
+  try {
+    const response = await vehicle.status({parsed:false,refresh:true});
+    console.log(response);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-// client.on('ready', async () => {
-//   const vehicle = client.getVehicle('KMTG34TA3PU106741');
-//   try {
-//     const response = await vehicle.status({parsed:false,refresh:true});
-//     console.log(response);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
-
-// client.on('error', async (err) => {
-//   console.log(err);
-// });
+client.on('error', async (err) => {
+  console.log(err);
+});
 
 const createWindow = () => {
   // Create the browser window.
