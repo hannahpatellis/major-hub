@@ -3,6 +3,10 @@
   "model_specific": "G70 2.0t RWD Sport Prestige",
   "model_year": "2023",
   "color": "Tasman Blue",
+  "color_hex": [
+    "204F5D",
+    "1C3F4A"
+  ],
   "color_interior": "Sandstorm Gray",
   "engine_type": "ICE",
   "bluelink_config": {

@@ -1,10 +1,36 @@
-const { app, BrowserWindow } = require('electron');
+const { app, Menu, ipcMain, BrowserWindow } = require('electron');
 const path = require('path');
+import BlueLinky from 'bluelinky';
+
+const isDev = true;
+const isMac = process.platform === 'darwin' ? true : false;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
+
+const client = new BlueLinky({
+  username: 'hpatellis@icloud.com',
+  password: 'm00cow123',
+  brand: 'hyundai',
+  region: 'US',
+  pin: '1480'
+});
+
+// client.on('ready', async () => {
+//   const vehicle = client.getVehicle('KMTG34TA3PU106741');
+//   try {
+//     const response = await vehicle.status({parsed:false,refresh:true});
+//     console.log(response);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
+
+// client.on('error', async (err) => {
+//   console.log(err);
+// });
 
 const createWindow = () => {
   // Create the browser window.
@@ -17,17 +43,42 @@ const createWindow = () => {
     icon: '../icons/icon.png'
   });
 
-  // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  if (isDev) {
+    mainWindow.webContents.openDevTools()
+  }
 };
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', () => {
+  createWindow();
+
+  const mainMenu = Menu.buildFromTemplate(menu);
+  Menu.setApplicationMenu(mainMenu);
+});
+
+const menu = [
+  ...(isMac ? [{ role: 'appMenu' }] : []),
+  {
+    role: 'fileMenu',
+  },
+  ...(isDev
+    ? [
+        {
+          label: 'Developer',
+          submenu: [
+            { role: 'reload' },
+            { role: 'forcereload' },
+            { type: 'separator' },
+            { role: 'toggledevtools' },
+          ],
+        },
+      ]
+    : [])
+]
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits

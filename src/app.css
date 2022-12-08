@@ -82,6 +82,9 @@ table {
 /* Variables */
 :root {
   --genesis-gold: #8B614C;
+  --light-black: #373737;
+  --car-color-1: #204F5D;
+  --car-color-2: #1C3F4A;
 }
 
 /* Global */
@@ -97,7 +100,7 @@ h1 {
 }
 
 /* Springboard */
-main {
+main#springboard {
   border: 1px solid var(--genesis-gold);
   padding: 1rem;
   margin: 1rem;
@@ -106,31 +109,94 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  animation-name: springboard-splash;
+  animation-duration: 1s;
 }
 img#emblem {
   padding-top: 1rem;
   width: 200px;
+  animation-name: emblem-splash;
+  animation-duration: 1.6s;
 }
-img#car {
-  width: 500px;
-  height: 150px;
-  object-fit: cover;
+
+/* Springboard header */
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1.5rem 0 .5rem 0;
+  animation-name: button-intro;
+  animation-duration: 4s;
 }
+header div#fuel-avail, header div#refresh-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% + 10px);
+  width: 90px;
+  border-radius: 15px;
+}
+header div img {
+  height: 14px;
+  margin-right: 7px;
+}
+header div div {
+  padding-top: 1px;
+  font-size: .8rem;
+}
+header div#refresh-action {
+  border: 1px solid var(--light-black);
+}
+
+/* Springboard primary control panel */
 section {
   display: grid;
   height: 20rem;
   width: 100%;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-gap: .5rem;
+  margin-bottom: 1rem;
 }
 section button {
   background-color: var(--genesis-gold);
   border: none;
   border-radius: .5rem;
+  animation-name: button-intro;
+  animation-duration: 4s;
+  font-family: 'GenesisSansHead', Futura, sans-serif;
+  font-weight: lighter;
+  font-size: 1.3rem;
+  letter-spacing: .15rem;
+  color: white;
 }
+section button:first-of-type {
+  grid-column-end: span 2;
+  background-color: var(--light-black);
+}
+section button:last-of-type {
+  background: var(--car-color-2);
+  background: linear-gradient(340deg, var(--car-color-2) 0%, var(--car-color-1) 92%);
+}
+section button.action-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+section button.action-button img {
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+/* Springboard footer */
 footer {
   padding-bottom: 1.5rem;
+}
+img#car {
+  width: 500px;
+  height: 150px;
+  object-fit: cover;
 }
 div#car_name {
   text-align: center;
@@ -139,7 +205,6 @@ div#car_name {
   font-size: 1.5rem;
   letter-spacing: .2rem;
   margin-bottom: .5rem;
-
 }
 div#car_details_milage {
   text-align: center;
@@ -148,4 +213,52 @@ div#car_details_milage {
   color: var(--genesis-gold);
   font-size: 1rem;
   letter-spacing: .1rem;
+}
+
+/* Animation keyframes */
+@keyframes springboard-splash {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes emblem-splash {
+  from {
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(.5) translate(0, -150px);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes button-intro {
+  from {
+    transform: scale(.5);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

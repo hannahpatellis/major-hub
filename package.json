@@ -1,8 +1,8 @@
 {
   "name": "major-hub",
   "productName": "major-hub",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "version": "0.1",
+  "description": "Control your Genesis vehicle from your computer",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
@@ -12,7 +12,7 @@
     "lint": "echo \"No linting configured\""
   },
   "keywords": [],
-  "author": "hannah",
+  "author": "Alexandria 'Hannah' I. Patellis",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.20.5",
