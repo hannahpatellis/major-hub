@@ -1,0 +1,151 @@
+/* Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Genesis fonts */
+@font-face {
+  font-family: 'GenesisSansHead';
+  src: url('./fonts/GenesisSansHead-Light.woff') format('woff'),
+    url('./fonts/GenesisSansHead-Light.ttf') format('truetype');
+  font-weight: lighter;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GenesisSansText';
+  src: url('./fonts/GenesisSansText-Regular.woff') format('woff'),
+    url('./fonts/GenesisSansText-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GenesisSansText';
+  src: url('./fonts/GenesisSansText-Bold.woff') format('woff'),
+    url('./fonts/GenesisSansText-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GenesisSansText';
+  src: url('./fonts/GenesisSansText-BoldItalic.woff') format('woff'),
+    url('./fonts/GenesisSansText-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'GenesisSansText';
+  src: url('./fonts/GenesisSansText-Italic.woff') format('woff'),
+    url('./fonts/GenesisSansText-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Variables */
+:root {
+  --genesis-gold: #8B614C;
+}
+
+/* Global */
+body {
+  font-family: 'GenesisSansText', Futura, sans-serif;
+  background-color: black;
+  color: white;
+  overflow-y: hidden;
+}
+h1 {
+  font-family: 'GenesisSansHead', Futura, sans-serif;
+  font-weight: lighter;
+}
+
+/* Springboard */
+main {
+  border: 1px solid var(--genesis-gold);
+  padding: 1rem;
+  margin: 1rem;
+  height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+img#emblem {
+  padding-top: 1rem;
+  width: 200px;
+}
+img#car {
+  width: 500px;
+  height: 150px;
+  object-fit: cover;
+}
+section {
+  display: grid;
+  height: 20rem;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: .5rem;
+}
+section button {
+  background-color: var(--genesis-gold);
+  border: none;
+  border-radius: .5rem;
+}
+footer {
+  padding-bottom: 1.5rem;
+}
+div#car_name {
+  text-align: center;
+  font-family: 'GenesisSansHead', Futura, sans-serif;
+  font-weight: lighter;
+  font-size: 1.5rem;
+  letter-spacing: .2rem;
+  margin-bottom: .5rem;
+
+}
+div#car_details_milage {
+  text-align: center;
+  font-family: 'GenesisSansHead', Futura, sans-serif;
+  font-weight: lighter;
+  color: var(--genesis-gold);
+  font-size: 1rem;
+  letter-spacing: .1rem;
+}

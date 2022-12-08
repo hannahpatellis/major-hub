@@ -1,0 +1,39 @@
+{
+  "model_name": [
+    "G70",
+    "G80",
+    "Electrified G80",
+    "G90",
+    "GV60",
+    "Electrified GV70",
+    "GV70",
+    "GV80",
+    "GV90"
+  ],
+  "model_year": [
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022"
+  ],
+  "engine_type": [
+    "ICE",
+    "EV"
+  ],
+  "bluelink_config": {
+    "brand": "hyundai",
+    "region": [
+      "US",
+      "CA",
+      "EU"
+    ]
+  },
+  "units": [
+    "miles",
+    "km"
+  ]
+}

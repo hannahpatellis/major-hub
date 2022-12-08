@@ -17,6 +17,17 @@ module.exports = [
     },
   },
   {
+    test: /\.(png|jp(e*)g|svg|gif)$/,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: 'img/[hash]-[name].[ext]',
+        },
+      },
+    ],
+  },
+  {
     test: /\.jsx?$/,
     use: {
       loader: 'babel-loader',

@@ -1,0 +1,19 @@
+{
+  "model_name": "G70",
+  "model_specific": "G70 2.0t RWD Sport Prestige",
+  "model_year": "2023",
+  "color": "Tasman Blue",
+  "color_interior": "Sandstorm Gray",
+  "engine_type": "ICE",
+  "bluelink_config": {
+    "username": "",
+    "password": "",
+    "brand": "hyundai",
+    "region": "US",
+    "pin": ""
+  },
+  "car_img_set": true,
+  "car_name": "Miss Major",
+  "car_vin": "",
+  "units": "miles"
+}
